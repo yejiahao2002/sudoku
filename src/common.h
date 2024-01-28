@@ -2,26 +2,26 @@
 #define _SUDOKU_COMMON_H_
 
 static const unsigned int UNSELECTED = 0;
-
+//难度定义
 enum class Difficulty : int
 {
     EASY = 1,
     NORMAL,
     HARD
 };
-
+//通关判断
 enum class State : int
 {
     INITED = 0,
     ERASED,
 };
-
+//输入方式
 enum class KeyMode : int
 {
     NORMAL = 1,
     VIM
 };
-
+//通用输入
 struct KeyMap
 {
     const char ESC = 0x1B;
@@ -32,7 +32,7 @@ struct KeyMap
     char RIGHT;
     const char ENTER = 0x0D;
 };
-
+//wasd输入
 struct Normal : KeyMap
 {
     Normal()
@@ -43,7 +43,7 @@ struct Normal : KeyMap
         RIGHT = 0x64;
     }
 };
-
+//vim输入
 struct Vim : KeyMap {
     Vim()
     {
@@ -53,12 +53,12 @@ struct Vim : KeyMap {
         RIGHT = 0x6C;
     }
 };
-
+//位置坐标
 using point_t = struct point_t {
     int x;
     int y;
 };
-
+//坐标值
 using point_value_t = struct point_value_t {
     int value;
     State state;
